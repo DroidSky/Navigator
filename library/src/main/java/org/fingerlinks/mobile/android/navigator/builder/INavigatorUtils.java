@@ -1,5 +1,6 @@
 package org.fingerlinks.mobile.android.navigator.builder;
 
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 
 import org.fingerlinks.mobile.android.navigator.AnimationEnum;
@@ -35,5 +36,9 @@ public interface INavigatorUtils<U extends INavigatorUtils> {
     void finishWithAnimation(AnimationEnum animation);
 
     void finishWithAnimation(int enter, int exit);
+
+    Bundle getBundle();
+
+    Bundle getBundle(String key);
 
 }

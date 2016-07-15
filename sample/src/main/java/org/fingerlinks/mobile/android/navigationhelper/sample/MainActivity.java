@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 bundle.putString("TITLE", "Title from bundle");
                 Navigator.with(MainActivity.this)
                         .build() //Enter in navigation mode
-                        .goTo(SecondActivity.class, bundle) //set destination and Bundle data
+                        .goTo(SecondActivity.class, bundle, "KEY") //set destination and Bundle data
                         .animation()
                         .commit(); //Execute startActivity -- startActivityForResult
                 break;

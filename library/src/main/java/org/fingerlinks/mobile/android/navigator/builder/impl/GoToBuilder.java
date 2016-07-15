@@ -2,9 +2,12 @@ package org.fingerlinks.mobile.android.navigator.builder.impl;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.text.TextUtils;
 
 import org.fingerlinks.mobile.android.navigator.NavigatorBean;
 import org.fingerlinks.mobile.android.navigator.NavigatorException;
@@ -31,11 +34,33 @@ public class GoToBuilder extends BaseBuilder implements Builders.Any.G {
     public Builders.Any.A goTo(Class<?> activity, Bundle bundle) {
         Intent intent = new Intent(mContextReference.getContext(), activity);
         if (bundle != null) {
-            intent.putExtra(Constant.BUNDLE, bundle);
+            intent.putExtras(bundle);
         }
         mNavigatorBean.setIntent(intent);
         //listStep.add(activity.getName());
         return new ActivityBuilder(mContextReference, mNavigatorBean);
+    }
+
+    public Builders.Any.A goTo(Class<?> activity, Bundle bundle, @NonNull String key) {
+        Intent intent = new Intent(mContextReference.getContext(), activity);
+        if (bundle != null) {
+            intent.putExtra(key, bundle);
+        }
+        mNavigatorBean.setIntent(intent);
+        //listStep.add(activity.getName());
+        return new ActivityBuilder(mContextReference, mNavigatorBean);
+    }
+
+    @Override
+    public Builders.Any.F goTo(String fragment, int container) {
+        goTo(Fragment.instantiate(mContextReference.getContext(), fragment), null, container);
+        return new FragmentBuilder(mContextReference, mNavigatorBean);
+    }
+
+    @Override
+    public Builders.Any.F goTo(String fragment, Bundle bundle, int container) {
+        goTo(Fragment.instantiate(mContextReference.getContext(), fragment), bundle, container);
+        return new FragmentBuilder(mContextReference, mNavigatorBean);
     }
 
     @Override

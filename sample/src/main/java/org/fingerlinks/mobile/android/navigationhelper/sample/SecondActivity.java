@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import org.fingerlinks.mobile.android.navigator.Navigator;
-import org.fingerlinks.mobile.android.navigator.utils.Constant;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -21,7 +20,8 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        Bundle bundle = getIntent().getBundleExtra(Constant.BUNDLE);
+        //Bundle bundle = getIntent().getBundleExtra(Constant.BUNDLE);
+        Bundle bundle = Navigator.with(this).utils().getBundle("KEY");
         setTitle(bundle.getString("TITLE"));
         Fragment fragment = new SecondFragment();
         Navigator.with(SecondActivity.this)

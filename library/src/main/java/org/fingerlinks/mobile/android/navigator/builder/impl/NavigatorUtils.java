@@ -1,6 +1,7 @@
 package org.fingerlinks.mobile.android.navigator.builder.impl;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +14,7 @@ import org.fingerlinks.mobile.android.navigator.BuildConfig;
 import org.fingerlinks.mobile.android.navigator.NavigatorException;
 import org.fingerlinks.mobile.android.navigator.R;
 import org.fingerlinks.mobile.android.navigator.builder.Builders;
+import org.fingerlinks.mobile.android.navigator.utils.Constant;
 import org.fingerlinks.mobile.android.navigator.utils.ContextReference;
 
 import java.util.ArrayList;
@@ -201,6 +203,16 @@ public class NavigatorUtils extends BaseBuilder implements Builders.Any.U {
 
     public void finishWithAnimation() {
         finishWithAnimation(AnimationEnum.HORIZONTAL);
+    }
+
+    public Bundle getBundle() {
+        Activity activity = ((Activity) mContextReference.getContext());
+        return activity.getIntent().getExtras();
+    }
+
+    public Bundle getBundle(String key) {
+        Activity activity = ((Activity) mContextReference.getContext());
+        return activity.getIntent().getBundleExtra(key);
     }
 
     private static long lastPressTime = 0;
