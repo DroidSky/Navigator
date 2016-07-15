@@ -31,7 +31,7 @@ And add che compile
 
 ```groovy
 dependencies {
-    compile 'org.fingerlinks.mobile.android:Navigator:0.1.2'
+    compile 'org.fingerlinks.mobile.android:Navigator:0.1.3'
 }
 ```
 
