@@ -47,8 +47,7 @@ public class SecondActivity extends AppCompatActivity {
                 bundle.putString("TEST", "fragment number " + numFragment);
                 Navigator.with(SecondActivity.this)
                         .build()
-                        .goTo(Fragment.instantiate(SecondActivity.this, SecondTestFragment.class.getName()),
-                                bundle,
+                        .goTo(SecondTestFragment.class.getName(), bundle,
                                 R.id.container)
                         .addToBackStack()
                         .tag("fragment_" + numFragment)
