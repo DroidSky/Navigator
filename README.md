@@ -31,7 +31,7 @@ And add che compile
 
 ```
 dependencies {
-    compile 'org.fingerlinks.mobile.android:Navigator:0.1.3'
+    compile 'org.fingerlinks.mobile.android:Navigator:0.1.4'
 }
 ```
 
