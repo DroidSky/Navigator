@@ -31,7 +31,7 @@ And add che compile
 
 ```Gradle
 dependencies {
-    compile 'org.fingerlinks.mobile.android:Navigator:0.1.4'
+    compile 'org.fingerlinks.mobile.android:Navigator:0.1.5'
 }
 ```
 
